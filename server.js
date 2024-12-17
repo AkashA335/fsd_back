@@ -75,7 +75,6 @@ app.put("/employees/:id", (req, res) => {
   const sql =
     "UPDATE employee SET name = ?, email = ?, phoneNumber = ?, department = ?, dateOfJoining = ?, role = ? WHERE employeeID = ?";
   const values = [name, email, phoneNumber, department, formattedDate, role, id];
-  
   db.query(sql, values, (err, result) => {
     if (err) {
       console.error("Update Error: ", err);
