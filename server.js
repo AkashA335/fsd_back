@@ -58,6 +58,16 @@ app.post("/register", (req, res) => {
   });
 });
 
+app.get("/employees", (req, res) => {
+  const sql = "SELECT * FROM employee";
+  db.query(sql, (err, data) => {
+    if (err) {
+      return res.status(500).json(err);
+    }
+    return res.status(200).json(data);
+  });
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Server running on port " + process.env.PORT);
 });
