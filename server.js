@@ -50,6 +50,7 @@ app.post("/register", (req, res) => {
             .json({ message: "Employee ID already exists" });
         }
       }
+      console.error("Registration Error: ", err);
       return res.status(500).json(err);
     }
     return res
